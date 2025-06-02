@@ -1,4 +1,11 @@
 # 8-Week-SQL-Challenge
+This repository serves as the solution for the 8 case studies from the [#8WeekSQLChallenge.](https://8weeksqlchallenge.com/)
+
+A special thanks to [Data with Danny](https://www.linkedin.com/company/datawithdanny/posts/?feedView=all) for creating these insightful and engaging SQL case studies! 👋🏻
+
+# 📚 Table of Contents
+Please find the solution links for the case studies below. Simply click on the links to access each solution
+
 The 8 Week SQL Challenge is brought to you by the Data With Danny.
 
 What is the 8 Week SQL Challenge?
