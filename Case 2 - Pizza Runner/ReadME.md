@@ -1,39 +1,67 @@
 # Case Study #2 - Pizza Runner
 
-## Introduction
-Did you know that over 115 million kilograms of pizza is consumed daily worldwide??? (Well according to Wikipedia anyway…)
-
-Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
-
-Danny was sold on the idea, but he knew that pizza alone was not going to help him get seed funding to expand his new Pizza Empire - so he had one more genius idea to combine with it - he was going to Uberize it - and so Pizza Runner was launched!
-
-Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
-
-## Available Data
-Because Danny had a few years of experience as a data scientist - he was very aware that data collection was going to be critical for his business’ growth.
-
-He has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.
-
-All datasets exist within the pizza_runner database schema - be sure to include this reference within your SQL scripts as you start exploring the data and answering the case study questions.
+## 📖Introduction
+Danny, inspired by a viral Instagram post combining 80s retro style and pizza, launched Pizza Runner—a startup delivering fresh pizzas from his home using a team of “runners” and a mobile app funded on his credit card. With a background in data science, Danny understood the importance of data for scaling his business and has designed a database schema to track operations. Now, he needs help cleaning the data and performing key calculations to optimize delivery and support business growth.
 
 ## Entity Relationship Diagram
 ![](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%202%20-%20Pizza%20Runner/ER%20Diagram.png)
 
 ## Case Study Questions
 This case study has LOTS of questions - they are broken up by area of focus including:
+- A. Pizza Metrics
+- B. Runner and Customer Experience
+- C. Ingredient Optimisation
+- D. Pricing and Ratings
+- E. Bonus DML Challenges (DML = Data Manipulation Language)
 
-- Pizza Metrics
-- Runner and Customer Experience
-- Ingredient Optimisation
-- Pricing and Ratings
-- Bonus DML Challenges (DML = Data Manipulation Language)
-- Each of the following case study questions can be answered using a single SQL statement.
+### 🚀 Each of the following case study questions can be answered using a single SQL statement.
 
-Again, there are many questions in this case study - please feel free to pick and choose which ones you’d like to try!
 
-Before you start writing your SQL queries however - you might want to investigate the data, you may want to do something with some of those null values and data types in the customer_orders and runner_orders tables!
+## Data Preparation
+There are null values and data types in the customer_orders and runner_orders tables which needed fixing. Here's the lik the data cleaning and preparation link. [Data Peparation](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%202%20-%20Pizza%20Runner/Data%20Cleaning%20and%20Transformation.sql) 
 
-## A. Pizza Metrics
+### Code Snippet of data cleaning
+```sql
+Create View runner_orders_view As
+    Select order_id, runner_id, 
+	  Case 
+		When pickup_time = 'null' OR TRY_CONVERT(datetime, pickup_time) IS NULL Then NULL
+		Else Try_convert(datetime,pickup_time)
+	  End As pickup_time,
+	  Case
+		When distance = 'null' Then ''
+		Else Try_Convert(Float, Replace(distance,'km',''))
+		End AS distance,
+	  CASE
+		When duration = 'null' Then ''
+		ELSE Try_Convert(INT,Left(duration,2))
+		End As duration,
+	  Case 
+		When cancellation Like '%cancel%' Then cancellation
+		Else ''
+		End AS cancellation
+    From runner_orders;
+```
+
+## 📂Repository Structure
+```
+Case 2- Pizza Runner/
+│
+├── ER Diagram.png/                              # Original ER Diagram of Danny in PNG file
+│  
+├── SQL Scripts/
+|   ├── Schema SQL.sql                           # Original SQL scripts for data loading
+│   ├── Data Cleaning and Transformation.sql/    # Scripts for cleaning and transforming data
+│   ├── A. Pizza Metrics.sql/                    # Scripts for quering to answer section A questions
+│   ├── B. Runner and Consumer Experience.sql/   # Scripts for quering to answer section B questions
+|   ├── C. Ingredient Optimization.sql/          # Scripts for quering to answer section C questions
+|   ├── D. Pricing and Ratings.sql/              # Scripts for quering to answer section D questions
+│   ├── E.Bonus Question.sql/                    # Scripts for quering to answer section B questions
+|
+├── README.md                                    # Project overview
+```
+
+## [A. Pizza Metrics Solution Link](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%202%20-%20Pizza%20Runner/A.%20Pizza%20Metrics.sql)
 1. How many pizzas were ordered?
 2. How many unique customer orders were made?
 3. How many successful orders were delivered by each runner?
@@ -44,6 +72,7 @@ Before you start writing your SQL queries however - you might want to investigat
 8. How many pizzas were delivered that had both exclusions and extras?
 9. What was the total volume of pizzas ordered for each hour of the day?
 10. What was the volume of orders for each day of the week?
+
 ## B. Runner and Customer Experience
 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
