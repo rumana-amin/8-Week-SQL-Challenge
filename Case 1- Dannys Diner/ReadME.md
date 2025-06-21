@@ -30,8 +30,7 @@ Click the link below for the answer of all the sql queries.
 [Case 1- Dannys Diner/Week 1- Dannys Diner.sql](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%201-%20Dannys%20Diner/Week%201-%20Dannys%20Diner.sql)
 
 Here is the query to answer question no 10.
-
-'''
+```sql
 
     With cte as (
 		Select s.customer_id, s.order_date, mn.join_date, m.price, m.price * 2 as points
@@ -57,4 +56,4 @@ Here is the query to answer question no 10.
     From cte
     Where order_date >= '20210101' AND order_date <= '20210131'
     Group by customer_id;
-'''
+```
