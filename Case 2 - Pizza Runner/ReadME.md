@@ -56,7 +56,7 @@ Case 2- Pizza Runner/
 │   ├── B. Runner and Consumer Experience.sql/   # Scripts for quering to answer section B questions
 |   ├── C. Ingredient Optimization.sql/          # Scripts for quering to answer section C questions
 |   ├── D. Pricing and Ratings.sql/              # Scripts for quering to answer section D questions
-│   ├── E.Bonus Question.sql/                    # Scripts for quering to answer section B questions
+│   ├── E.Bonus Question.sql/                    # Scripts for quering to answer bobus questions
 |
 ├── README.md                                    # Project overview
 ```
