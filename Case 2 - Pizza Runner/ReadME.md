@@ -73,7 +73,7 @@ Case 2- Pizza Runner/
 9. What was the total volume of pizzas ordered for each hour of the day?
 10. What was the volume of orders for each day of the week?
 
-## B. Runner and Customer Experience
+## [B. Runner and Customer Experience Solution Link](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%202%20-%20Pizza%20Runner/B.%20Runner%20and%20Customer%20Experience.sql)
 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
@@ -81,7 +81,7 @@ Case 2- Pizza Runner/
 5. What was the difference between the longest and shortest delivery times for all orders?
 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 7. What is the successful delivery percentage for each runner?
-## C. Ingredient Optimisation
+## [C. Ingredient Optimisation Solution Link](https://github.com/rumana-amin/8-Week-SQL-Challenge/blob/main/Case%202%20-%20Pizza%20Runner/C.%20Ingredient%20Optimisation.sql)
 1. What are the standard ingredients for each pizza?
 2. What was the most commonly added extra?
 3. What was the most common exclusion?
